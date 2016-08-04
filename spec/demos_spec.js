@@ -21,7 +21,7 @@ describe('Get /query', function () {
 describe('Post /body', function () {
     it('should get a parameter from body', function (done) {
         request
-            .post('/post')
+            .post('/body')
             .send({name: 'wyx'})
             .expect('wyx')
             .end(function (err, res) {
@@ -36,4 +36,19 @@ describe('Post /body', function () {
 })
 
 
+describe('Get /params', function () {
+    it('should get a parameter from params', function (done) {
+        request
+            .get('/params/wyx')
+            .expect('wyx')
+            .end(function (err, res) {
+                if (err) {
+                    done.fail(err);
+                }
+                else {
+                    done();
+                }
+            })
+    })
+})
 
