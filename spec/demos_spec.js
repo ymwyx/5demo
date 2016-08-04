@@ -16,7 +16,7 @@ describe('Get /query', function () {
             })
 
     })
-})
+});
 
 describe('Post /body', function () {
     it('should get a parameter from body', function (done) {
@@ -33,7 +33,7 @@ describe('Post /body', function () {
                 }
             })
     })
-})
+});
 
 
 describe('Get /params', function () {
@@ -50,7 +50,7 @@ describe('Get /params', function () {
                 }
             })
     })
-})
+});
 
 describe('Post /header', function () {
     it('should get a parameter from header', function (done) {
@@ -67,4 +67,22 @@ describe('Post /header', function () {
                 }
             })
     })
-})
+});
+
+
+describe('Post /json', function () {
+    it('should get a parameter from json', function (done) {
+        request
+            .post('/json')
+            .send({name: 'yyy'})
+            .expect({name:'yyy'})
+            .end(function (err, res) {
+                if (err) {
+                    done.fail(err);
+                }
+                else {
+                    done();
+                }
+            })
+    })
+});

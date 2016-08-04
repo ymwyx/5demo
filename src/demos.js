@@ -7,16 +7,24 @@ app.use(bodyParser.json());
 
 app.post('/body', function (req, res) {
     res.send(req.body.name);
-})
+});
+
 app.get('/query', function (req, res) {
     res.send(req.query.q);
-})
+});
+
 app.get('/params/:name', function (req, res) {
     res.send(req.params.name);
-})
+});
+
 app.post('/header', function (req, res) {
     res.send(req.get('name'));
-})
+});
+
+
+app.post('/json', function (req, res) {
+    res.send(req.body);
+});
 
 app.listen(3000, function () {
 });
