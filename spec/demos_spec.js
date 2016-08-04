@@ -52,3 +52,19 @@ describe('Get /params', function () {
     })
 })
 
+describe('Post /header', function () {
+    it('should get a parameter from header', function (done) {
+        request
+            .post('/header')
+            .set({name: 'yyy'})
+            .expect('yyy')
+            .end(function (err, res) {
+                if (err) {
+                    done.fail(err);
+                }
+                else {
+                    done();
+                }
+            })
+    })
+})

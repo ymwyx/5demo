@@ -14,6 +14,9 @@ app.get('/query', function (req, res) {
 app.get('/params/:name', function (req, res) {
     res.send(req.params.name);
 })
+app.post('/header', function (req, res) {
+    res.send(req.get('name'));
+})
 
 app.listen(3000, function () {
 });
